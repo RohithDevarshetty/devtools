@@ -11,7 +11,14 @@ from trading_strategies import (
     VolatilityBreakoutStrategy,
     SuperTrendFollowerStrategy,
     BollingerSqueezeStrategy,
-    GapAndGoStrategy
+    GapAndGoStrategy,
+    TripleMomentumRocketStrategy,
+    ReversalHunterStrategy,
+    VolumeExplosionStrategy,
+    MovingAverageRainbowStrategy,
+    TrendSurfingExtremeStrategy,
+    BreakoutBanditStrategy,
+    SwingScalperStrategy
 )
 from data_fetcher import IndianMarketDataFetcher, DataGenerator
 from performance_analyzer import PerformanceAnalyzer, StrategyComparer
@@ -92,7 +99,14 @@ def run_multiple_strategies_comparison():
         VolatilityBreakoutStrategy(atr_period=14, breakout_multiplier=2.0, position_size_pct=0.10),
         SuperTrendFollowerStrategy(position_size_pct=0.20),
         BollingerSqueezeStrategy(bb_period=20, squeeze_threshold=0.015, position_size_pct=0.15),
-        GapAndGoStrategy(min_gap_pct=2.0, position_size_pct=0.12)
+        GapAndGoStrategy(min_gap_pct=2.0, position_size_pct=0.12),
+        TripleMomentumRocketStrategy(roc_period=10, position_size_pct=0.18),
+        ReversalHunterStrategy(rsi_extreme=20, position_size_pct=0.14),
+        VolumeExplosionStrategy(volume_multiplier=2.5, position_size_pct=0.16),
+        MovingAverageRainbowStrategy(position_size_pct=0.20),
+        TrendSurfingExtremeStrategy(trail_pct=3.0, position_size_pct=0.17),
+        BreakoutBanditStrategy(lookback_period=252, position_size_pct=0.13),
+        SwingScalperStrategy(target_profit_pct=3.0, stop_loss_pct=1.5, position_size_pct=0.11)
     ]
 
     # Run backtest for each strategy

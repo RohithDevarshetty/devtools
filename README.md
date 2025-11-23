@@ -5,13 +5,20 @@ A comprehensive, production-ready backtesting framework for testing **crazy trad
 ## 🚀 Features
 
 - **Complete Backtesting Engine**: Realistic portfolio management with commission tracking
-- **6 Crazy Trading Strategies**:
+- **13 Crazy Trading Strategies**:
   - 💥 Momentum Explosion - Aggressive trend following
   - 🎯 Mean Reversion Madness - Extreme oversold/overbought trading
   - ⚡ Volatility Breakout - Trades explosive price moves
   - 🔥 SuperTrend Follower - Multi-indicator confirmation system
   - 🎪 Bollinger Squeeze - Volatility compression plays
   - 🚀 Gap and Go - Morning gap trading
+  - 🚁 Triple Momentum Rocket - Combines RSI, MACD & ROC
+  - 🎣 Reversal Hunter - Catches V-shaped reversals with candlestick patterns
+  - 📢 Volume Explosion - Trades massive volume spikes
+  - 🌈 MA Rainbow - 5 moving average alignment system
+  - 🏄 Trend Surfing Extreme - Aggressive trailing stop strategy
+  - 🎯 Breakout Bandit - 52-week high breakout trader
+  - ⚡ Swing Scalper - Quick 2-5% swing trades
 - **Comprehensive Performance Metrics**: Sharpe ratio, Sortino ratio, max drawdown, CAGR, win rate, and more
 - **Real Indian Market Data**: Support for NSE/BSE stocks via yfinance
 - **Sample Data Generation**: Test strategies without internet connection
@@ -117,6 +124,57 @@ Exploits morning gaps with momentum follow-through.
 
 **Parameters:**
 - `min_gap_pct`: Minimum gap percentage (default: 2.0%)
+
+### 7. Triple Momentum Rocket Strategy
+Ultra-aggressive momentum strategy combining three indicators: RSI, MACD, and Rate of Change. Only enters when all momentum indicators align explosively.
+
+**Parameters:**
+- `roc_period`: Rate of Change lookback period (default: 10)
+- `position_size_pct`: Position size as % of capital (default: 0.18)
+
+### 8. Reversal Hunter Strategy
+Catches V-shaped reversals after extreme moves using candlestick patterns (hammer, bullish engulfing) combined with oversold RSI.
+
+**Parameters:**
+- `rsi_extreme`: RSI level for extreme oversold (default: 20)
+- `position_size_pct`: Position size (default: 0.14)
+
+### 9. Volume Explosion Strategy
+Trades on massive volume spikes (2.5x+ average volume). When volume explodes with price momentum, rides the wave.
+
+**Parameters:**
+- `volume_multiplier`: Volume spike threshold (default: 2.5)
+- `volume_period`: Average volume lookback (default: 20)
+- `position_size_pct`: Position size (default: 0.16)
+
+### 10. Moving Average Rainbow Strategy
+Uses 5 moving averages (5, 10, 20, 50, 100 periods) and only enters when they align in perfect ascending order - creating a "rainbow" effect.
+
+**Parameters:**
+- `position_size_pct`: Position size (default: 0.20)
+
+### 11. Trend Surfing Extreme Strategy
+Aggressive trend following with tight 3% trailing stops. Uses Parabolic SAR concept to ride trends while protecting profits.
+
+**Parameters:**
+- `trail_pct`: Trailing stop percentage (default: 3.0%)
+- `position_size_pct`: Position size (default: 0.17)
+
+### 12. Breakout Bandit Strategy
+Trades 52-week high breakouts after consolidation periods. Waits for price to consolidate, then catches the explosive breakout.
+
+**Parameters:**
+- `lookback_period`: Breakout lookback period (default: 252 days)
+- `min_consolidation_days`: Minimum consolidation period (default: 20)
+- `position_size_pct`: Position size (default: 0.13)
+
+### 13. Swing Scalper Strategy
+Rapid swing trading targeting 2-5% moves. Uses fast EMAs (5, 10) for quick entries and exits with tight profit targets and stop losses.
+
+**Parameters:**
+- `target_profit_pct`: Profit target percentage (default: 3.0%)
+- `stop_loss_pct`: Stop loss percentage (default: 1.5%)
+- `position_size_pct`: Position size (default: 0.11)
 
 ## 📈 Performance Metrics
 
